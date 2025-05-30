@@ -1,11 +1,13 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(to right, #d16ba5, #86a8e7);
+  height: 100vh;
 }
 
 code {
@@ -13,30 +15,106 @@ code {
     monospace;
 }
 
-/* body {
-  margin: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(to right, #d16ba5, #86a8e7);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+/* Wishlist table styles */
+.wishlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.wishlist-table th,
+.wishlist-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.wishlist-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.wishlist-table th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: 600;
+}
+
+.wishlist-table img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.wishlist-table button {
+  padding: 8px 14px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.wishlist-table button:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive tweaks for wishlist */
+@media (max-width: 768px) {
+  .wishlist-table,
+  .wishlist-table thead,
+  .wishlist-table tbody,
+  .wishlist-table th,
+  .wishlist-table td,
+  .wishlist-table tr {
+    display: block;
+  }
+
+  .wishlist-table tr {
+    margin-bottom: 15px;
+  }
+
+  .wishlist-table td {
+    padding-left: 50%;
+    position: relative;
+    text-align: right;
+  }
+
+  .wishlist-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    padding-left: 10px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .wishlist-table th {
+    display: none;
+  }
+
+  .wishlist-table img {
+    width: 80px;
+  }
+}
 
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .form-box {
   background: white;
   padding: 2rem;
   border-radius: 10px;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
@@ -55,8 +133,8 @@ h2 {
   padding: 0.5rem;
   background: none;
   border: none;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
   color: #555;
 }
 
@@ -74,14 +152,15 @@ form {
 input {
   padding: 0.7rem;
   margin: 0.5rem 0;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 0.9rem;
 }
 
 .forgot {
-  color: #d16ba5;
-  font-size: 0.85rem;
   text-align: left;
+  font-size: 0.85rem;
+  color: #d16ba5;
   margin-bottom: 1rem;
   cursor: pointer;
 }
@@ -93,13 +172,14 @@ input {
   color: white;
   font-weight: bold;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .bottom-text {
   margin-top: 1rem;
   font-size: 0.85rem;
-  color: #333;
 }
 
 .bottom-text span {
